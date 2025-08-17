@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/components/ui/use-toast";
+import { testUsers, testAccountInstructions } from "@/data/testUsers";
 const Auth: React.FC = () => {
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [email, setEmail] = useState("");
@@ -138,8 +139,22 @@ const Auth: React.FC = () => {
                 </p>
               )}
             </div>
-            <div className="mt-4 text-center">
+            <div className="mt-4 text-center space-y-2">
               <Link to="/" className="story-link">Back to home</Link>
+              <details className="text-left mt-4">
+                <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">Test Accounts</summary>
+                <div className="mt-2 p-3 bg-muted/30 rounded-md text-xs space-y-2">
+                  <div>
+                    <strong>Student:</strong> student@test.com / student123
+                  </div>
+                  <div>
+                    <strong>Teacher:</strong> teacher@test.com / teacher123
+                  </div>
+                  <div>
+                    <strong>Admin:</strong> admin@test.com / admin123
+                  </div>
+                </div>
+              </details>
             </div>
           </CardContent>
         </Card>
